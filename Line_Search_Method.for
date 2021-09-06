@@ -1,7 +1,7 @@
 ! Constitutive law: Modified Cam-clay model
 ! Reference: Xin Zhou, Dechun Lu, Cancan Su, Zhiwei Gao, Xiuli Du. An unconstrained stress updating algorithm 
 !            with the line search method for elastoplastic soil models 
-! Author: Zhou xin (zhouxin615@126.com)
+! Author contact information: zhouxin615@126.com
       
       subroutine umat(stress,statev,ddsdde,sse,spd,scd,
      1 rpl,ddsddt,drplde,drpldt,
