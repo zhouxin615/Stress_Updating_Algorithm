@@ -147,24 +147,7 @@ c
          xcdold = xcd
          dgammaold = dgamma
          nsdtold = nsdt
-         
-         do while (Iteration1.LT.Mmax) 
-            call gnwf(g,nw,paras,sdold,dev,dgamma,pold,pcold,xs,xcd,
-     +   x+alpha*dx,nsdt)
-              norm_g=sqrt(g(1,1)*g(1,1)+g(2,1)*g(2,1)+g(3,1)*g(3,1)
-     1  + g(4,1)*g(4,1))            
-            F1 = 0.5d0*norm_g
-              
-            if (F1.LT.((1.0d0-2.0d0*rho*alpha)*F0)) then
-                go to 192
-            else
-                alpha = max(zeta*alpha,F0/(F0+F1))
-            endif
-            
-            Iteration1 = Iteration1 + 1
-        end do        
- 
-          
+   
 192     continue    
         
          xs = xsold
