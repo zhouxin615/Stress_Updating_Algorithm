@@ -132,37 +132,7 @@ c
       call gnwf(g,nw,paras,sdold,dev,dgamma,pold,pcold,xs,xcd,x,nsdt)
       norm_g=sqrt(g(1,1)*g(1,1)+g(2,1)*g(2,1)+g(3,1)*g(3,1)
      1  + g(4,1)*g(4,1))      
-!      call Trust(paras,sdold,dev,dgamma,xold,xs,xcd,x,Iteration)       ! call NMTR method subroutine
-      do while ((norm_g.GT.Ftol).and.(Iteration .LT. Maxit))
-         Iteration =Iteration + 1
-         call Jacob(Jg,nw,paras,dgamma,pold,pcold,xs,xcd,x,nsdt)
-         call inverse(Jg,IJg,4)
-         dx = -matmul(IJg,g)
-         
-         alpha = 1.0d0
-         F0 = 0.5d0*norm_g
-         
-         Iteration1 = 0
-         xsold = xs
-         xcdold = xcd
-         dgammaold = dgamma
-         nsdtold = nsdt
-   
-192     continue    
-        
-         xs = xsold
-         xcd = xcdold
-         dgamma = dgammaold
-         nsdt =   nsdtold
-!        write(*,*)"alpha",alpha
-!        alpha = 1.0d0
-        x = x + alpha*dx         
 
-         call gnwf(g,nw,paras,sdold,dev,dgamma,pold,pcold,xs,xcd,x,nsdt)
-         norm_g=sqrt(g(1,1)*g(1,1)+g(2,1)*g(2,1)+g(3,1)*g(3,1)
-     1  + g(4,1)*g(4,1))         
-
-      end do
       
       
 ! compute residual function vector (g),the direction of deviatoric stress tensor (nw), xs, xcd, and nsdt
